@@ -10,7 +10,7 @@ services:
       timeout: 3s
       retries: 5
     ports:
-      - "3307/tcp"
+      - "3306/tcp"
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: auth
@@ -77,6 +77,26 @@ services:
 
   userwebservice:
     image: shahzadmasud/basic-user-webservice:0.0.1
+    mem_limit: 1073741824
+    restart: unless-stopped
+    ports:
+      - "8080/tcp"
+    depends_on:
+      eurekaregistry:
+        condition: service_healthy
+
+  taskwebservice:
+    image: shahzadmasud/basic-task-webservice:0.0.1
+    mem_limit: 1073741824
+    restart: unless-stopped
+    ports:
+      - "8080/tcp"
+    depends_on:
+      eurekaregistry:
+        condition: service_healthy
+
+  commentswebservice:
+    image: shahzadmasud/basic-comments-webservice:0.0.1
     mem_limit: 1073741824
     restart: unless-stopped
     ports:
