@@ -69,6 +69,9 @@ dependencies {
 jar {
     baseName = "${project.jarName}"
     version =  "${project.versionName}"
+    manifest {
+      attributes 'Start-Class': '${mainClassName}'
+    }
 }
 
 /*

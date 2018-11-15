@@ -1,0 +1,11 @@
+language: java
+script: 
+  cd api-gateway; ./gradlew clean verify; cd ..
+  cd auth-server; ./gradlew clean verify; cd ..
+  cd config-server; ./gradlew clean verify; cd ..
+  cd comments-webservice; ./gradlew clean verify; cd ..
+  cd task-webservice; ./gradlew clean verify; cd ..
+  cd user-webservice; ./gradlew clean verify; cd ..
+  cd web-portal; ./gradlew clean verify; cd ..
+  cd webservice-registry; ./gradlew clean verify; cd ..
+  cd zipkin-server; ./gradlew clean verify; cd ..

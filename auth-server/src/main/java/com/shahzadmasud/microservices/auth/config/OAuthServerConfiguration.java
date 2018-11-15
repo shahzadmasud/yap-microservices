@@ -55,7 +55,7 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.jdbc(this.dataSource).withClient("acme").secret("acmesecret").authorizedGrantTypes("authorization_code",
+		clients.jdbc(this.dataSource).withClient("digitify").secret("digitifysecret").authorizedGrantTypes("authorization_code",
 				"client_credentials", "password", "implicit", "refresh_token").scopes("openid");
 	}
 
@@ -96,8 +96,8 @@ public class OAuthServerConfiguration extends AuthorizationServerConfigurerAdapt
 		@Override
 		public void init(AuthenticationManagerBuilder auth) throws Exception {
 			// @formatter:off
-			auth.jdbcAuthentication().dataSource(dataSource).withUser("dave").password("secret").roles("USER").and()
-					.withUser("anil").password("password").roles("ADMIN", "USER").and().getUserDetailsService();
+			auth.jdbcAuthentication().dataSource(dataSource).withUser("janshair").password("secret").roles("USER").and()
+					.withUser("shahzad").password("password").roles("ADMIN", "USER").and().getUserDetailsService();
 			// @formatter:on
 
 			// Add the default service
